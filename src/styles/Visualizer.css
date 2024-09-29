@@ -1,0 +1,200 @@
+/* visualizer.css */
+/* Visualizer Container */
+.visualizer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0c0c0c, #2a2a2a); /* Gradient background for depth */
+    min-height: 100vh;
+    color: #f5f5f5; /* Soft white text for better contrast */
+    padding: 40px; /* More padding for spacious feel */
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Subtle outer shadow for depth */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden; /* Prevents overflow */
+}
+
+/* Array Container */
+.array-container {
+    display: flex; /* Flex for a single line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    margin: 20px 0; /* Space above and below */
+    padding: 20px; /* Consistent padding */
+    border-radius: 10px; /* Rounded edges for the container */
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent light background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    max-width: 100%; /* Ensures it fits within the parent */
+}
+
+/* Array Bar */
+.array-bar {
+    width: 25px; /* Increased width for better visibility */
+    flex-shrink: 0; /* Prevents bars from shrinking */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 8px; /* Space between bars */
+    background-color: #66bb6a; /* Main color for bars (Green) */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+    border-radius: 8px; /* Rounded corners */
+    position: relative;
+    box-shadow: 0 4px 30px rgba(76, 175, 80, 0.7); /* Subtle glow effect */
+}
+
+/* Bar Number */
+.bar-number {
+    font-size: 16px; /* Larger font size for better readability */
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    margin-bottom: 6px; /* Space between number and top of the bar */
+}
+
+/* Bar Value Styling */
+.bar-value {
+    position: absolute;
+    bottom: 100%; /* Position above the bar */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10%); /* Center and slightly raise */
+    font-weight: bold;
+    font-size: 1.1em; /* Adjust font size */
+    color: #ffffff; /* White text */
+    background-color: rgba(0, 0, 0, 0.75); /* Darker semi-transparent background */
+    border-radius: 6px; /* Rounded corners */
+    padding: 4px 8px; /* Padding for better appearance */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Soft glow effect */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Dynamic Colors for Changing Array Bars */
+.array-bar.changed.red {
+    background-color: #ff5252; /* Red */
+}
+
+.array-bar.changed.blue {
+    background-color: #42a5f5; /* Blue */
+}
+
+.array-bar.changed.purple {
+    background-color: #ab47bc; /* Purple */
+}
+
+.array-bar.changed.yellow {
+    background-color: #ffeb3b; /* Yellow */
+}
+
+/* Hover Effect */
+.array-bar:hover .bar-value {
+    transform: translateX(-50%) translateY(-20%) scale(1.5); /* Scale up on hover */
+}
+
+/* Button Styles */
+button {
+    margin: 10px; /* Increased margin for buttons */
+    padding: 12px 28px; /* Increased padding for a more substantial feel */
+    background-color: #333; /* Dark background for buttons */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    color: #f5f5f5; /* Soft white text color */
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text for emphasis */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for scaling effect */
+    position: relative; /* For pseudo-element */
+    overflow: hidden; /* Prevent overflow on pseudo-element */
+}
+
+button:hover {
+    background-color: #555; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Button Ripple Effect */
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0; /* Ensure it's behind text */
+}
+
+button:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Animate ripple effect */
+}
+
+/* Controls Box Styles */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Increased spacing between controls */
+    padding: 20px; /* Padding around the controls */
+    background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent dark background */
+    border-radius: 12px; /* Rounded corners for the box */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    width: 100%; /* Ensure it fits the container */
+    max-width: 800px; /* Optional: Limit the width on larger screens */
+}
+
+/* Algorithm Select Styles */
+.algorithm-select {
+    padding: 12px; /* Increased padding for a more substantial feel */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #333; /* Dark background for select */
+    color: #f5f5f5; /* Text color */
+    font-weight: bold; /* Bold text */
+    font-size: 1em; /* Consistent font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Transition for background */
+}
+
+.algorithm-select:hover {
+    background-color: #555; /* Darker shade on hover */
+}
+
+/* No Data Message Styles */
+.no-data-message {
+    color: #ffcc00; /* Highlight color for message */
+    font-size: 1.6em; /* Larger font size */
+    margin-top: 20px; /* Spacing above the message */
+    text-align: center; /* Center the message */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Enhanced glow effect */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .array-container {
+        padding: 10px; /* Reduce padding on smaller screens */
+        flex-wrap: wrap; /* Allow wrapping of bars */
+        overflow-x: hidden; /* Disable horizontal scrolling */
+    }
+
+    .array-bar {
+        width: 20px; /* Adjust width for smaller screens */
+        margin: 0 5px; /* Reduce margin for smaller screens */
+    }
+
+    .bar-number {
+        font-size: 12px; /* Slightly larger font size for numbers */
+    }
+
+    button {
+        font-size: 0.9em; /* Smaller font size for buttons */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+
+    .algorithm-select {
+        font-size: 0.9em; /* Smaller font size for select */
+    }
+
+    .no-data-message {
+        font-size: 1.3em; /* Smaller font size for no data message */
+    }
+}

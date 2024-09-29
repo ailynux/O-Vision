@@ -1,38 +1,188 @@
+/* General Styling for the App Container */
 .App {
+  position: relative; /* Allow particles to cover */
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #121212;
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Particles Background Styling */
+.Particles {
+  position: absolute; /* Cover the entire App */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place behind other content */
+}
+/* Header Styling */
+.App-header {
+  perspective: 1000px; /* Allow 3D effect */
+  width: 100%; /* Ensure header takes full width */
+  padding: 20px; /* Padding for spacing */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.App-header h1,
+.App-header h2 {
+  display: inline-block;
+  font-size: 3rem;
+  transition: transform 0.5s ease;
+}
+
+.App-header h1:hover,
+.App-header h2:hover {
+  transform: rotateY(20deg) scale(1.1); /* 3D rotation and scaling effect on hover */
+}
+
+/* Main Content Styling */
+main {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  flex: 1; /* Allow the main section to grow */
 }
 
+/* Footer Styling */
+.App-footer {
+  position: relative;
+  width: 100%;
+  padding: 40px; /* Increased padding for a more spacious feel */
+  color: #e0e0e0; /* Lighter text color for better contrast */
+  background: rgba(30, 30, 30, 0.9); /* Dark background for depth */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Stronger shadow for depth */
+  border-top: 2px solid #1db954; /* Futuristic top border */
+  margin-top: 20px; /* Ensure there’s space above the footer */
+  overflow: hidden; /* Hide overflow from the pseudo-element */
+}
+
+.App-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4; /* Dim the image to enhance text visibility */
+  z-index: -1; /* Send the image behind the text */
+}
+
+.footer-content {
+  position: relative; /* Position relative to allow text on top */
+  z-index: 1; /* Bring the content in front of the background */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align the content */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Stronger text shadow for better readability */
+  animation: fadeIn 1s ease-in; /* Animation for the entire footer content */
+}
+
+/* Footer Header */
+.App-footer h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 2em; /* Larger font size for the header */
+  font-weight: 700; /* Bolder for emphasis */
+  color: #1db954; /* Accent color for the title */
+  text-transform: uppercase; /* Make it stand out */
+  letter-spacing: 1px; /* Spacing for aesthetics */
+  animation: fadeIn 1s ease-in 0.5s; /* Animation with delay */
+}
+
+/* Footer Paragraphs */
+.App-footer p {
+  margin: 5px 0; /* Add some spacing between paragraphs */
+  font-size: 1.4em; /* Slightly larger font size for emphasis */
+  font-weight: 500; /* Medium weight for better readability */
+}
+
+/* Footer Links */
 .App-link {
-  color: #61dafb;
+  color: #00e5ff; /* Futuristic link color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling on hover */
+  margin-top: 5px; /* Space between paragraph and link */
+  font-size: 1.2em; /* Slightly larger font size for links */
 }
 
+.App-link:hover {
+  color: #18a348; /* Slightly change color on hover */
+  text-decoration: underline; /* Underline on hover for emphasis */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Move up slightly */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1db954; /* Green background for buttons */
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #18a348; /* Darker shade on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.98); /* Small button press effect */
+}
+
+/* Spinner Animation (if needed) */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem; /* Adjust header font size for smaller screens */
+  }
+
+  button {
+    padding: 8px 16px; /* Adjust button padding for smaller screens */
+    font-size: 0.9rem;
+  }
+
+  .App-footer p {
+    font-size: 1.2em; /* Adjust footer font size for smaller screens */
+  }
+
+  /* Ensure everything fits on smaller screens */
+  .App-header,
+  .App-footer {
+    padding: 15px; /* Adjust padding to fit smaller screens */
   }
 }
