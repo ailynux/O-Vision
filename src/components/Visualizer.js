@@ -1,7 +1,6 @@
 // Visualizer.js
 // src/components/Visualizer.js
 
-// Visualizer.js
 import React, { useState, useEffect } from "react";
 import { insertionSort } from '../sortingAlgorithms/insertionSort';
 import { selectionSort } from '../sortingAlgorithms/selectionSort';
