@@ -1,112 +1,152 @@
-/* visualizer.css */
 /* Visualizer Container */
 .visualizer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0c0c0c, #2a2a2a); /* Gradient background for depth */
+    background: linear-gradient(135deg, #0c0c0c, #2a2a2a);
     min-height: 100vh;
-    color: #f5f5f5; /* Soft white text for better contrast */
-    padding: 40px; /* More padding for spacious feel */
-    font-family: 'Arial', sans-serif; /* Clean, modern font */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Subtle outer shadow for depth */
-    border-radius: 12px; /* Rounded corners */
-    overflow: hidden; /* Prevents overflow */
+    color: #f5f5f5;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Array Container */
 .array-container {
-    display: flex; /* Flex for a single line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    margin: 20px 0; /* Space above and below */
-    padding: 20px; /* Consistent padding */
-    border-radius: 10px; /* Rounded edges for the container */
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent light background */
+    display: flex; /* Flexbox layout for the bars */
+    align-items: flex-end; /* Align bars to grow upwards */
+    justify-content: center; /* Center the bars in the container */
+    flex-wrap: wrap; /* Allow bars to wrap on smaller screens */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); /* Frosted glass effect */
-    max-width: 100%; /* Ensures it fits within the parent */
+    max-width: 100%;
 }
 
 /* Array Bar */
 .array-bar {
-    width: 25px; /* Increased width for better visibility */
-    flex-shrink: 0; /* Prevents bars from shrinking */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 0 8px; /* Space between bars */
-    background-color: #66bb6a; /* Main color for bars (Green) */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
-    border-radius: 8px; /* Rounded corners */
+    width: 25px;
+    flex-shrink: 0;
+    margin: 0 8px;
+    background-color: #66bb6a;
+    transition: background-color 0.3s, transform 0.2s, height 0.3s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(76, 175, 80, 0.7);
     position: relative;
-    box-shadow: 0 4px 30px rgba(76, 175, 80, 0.7); /* Subtle glow effect */
 }
 
 /* Bar Number */
 .bar-number {
-    font-size: 16px; /* Larger font size for better readability */
-    color: #ffffff; /* White text color */
+    font-size: 16px;
+    color: #ffffff;
     font-weight: bold;
-    margin-bottom: 6px; /* Space between number and top of the bar */
+    margin-bottom: 6px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .array-container {
+        padding: 10px; /* Reduce padding on mobile */
+        justify-content: flex-start; /* Align bars to the left on smaller screens */
+    }
+
+    .array-bar {
+        width: 15px; /* Reduce width of bars on mobile */
+        margin: 0 5px; /* Reduce spacing between bars */
+    }
+
+    .bar-number {
+        font-size: 12px; /* Decrease font size for the bar numbers */
+    }
+}
+
+@media (max-width: 480px) {
+    .array-container {
+        padding: 5px; /* Further reduce padding for very small screens */
+    }
+
+    .array-bar {
+        width: 10px; /* Further reduce bar width for small screens */
+        margin: 0 3px; /* Reduce spacing between bars */
+    }
+
+    .bar-number {
+        font-size: 10px; /* Decrease font size further for smaller screens */
+    }
+}
+
+/* Hover Effect */
+.array-bar:hover {
+    transform: scale(1.1); /* Slight scaling effect */
+    box-shadow: 0 4px 50px rgba(76, 175, 80, 1); /* Enhanced glow */
+}
+
+/* Bar Number */
+.bar-number {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* Dynamic Colors for Changing Array Bars */
+.array-bar.changed.red {
+    background-color: #ff5252;
+}
+
+.array-bar.changed.blue {
+    background-color: #42a5f5;
+}
+
+.array-bar.changed.purple {
+    background-color: #ab47bc;
+}
+
+.array-bar.changed.yellow {
+    background-color: #ffeb3b;
 }
 
 /* Bar Value Styling */
 .bar-value {
     position: absolute;
-    bottom: 100%; /* Position above the bar */
+    bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(-10%); /* Center and slightly raise */
+    transform: translateX(-50%) translateY(-10%);
     font-weight: bold;
-    font-size: 1.1em; /* Adjust font size */
-    color: #ffffff; /* White text */
-    background-color: rgba(0, 0, 0, 0.75); /* Darker semi-transparent background */
-    border-radius: 6px; /* Rounded corners */
-    padding: 4px 8px; /* Padding for better appearance */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Soft glow effect */
-    pointer-events: none; /* Prevent interaction */
-}
-
-/* Dynamic Colors for Changing Array Bars */
-.array-bar.changed.red {
-    background-color: #ff5252; /* Red */
-}
-
-.array-bar.changed.blue {
-    background-color: #42a5f5; /* Blue */
-}
-
-.array-bar.changed.purple {
-    background-color: #ab47bc; /* Purple */
-}
-
-.array-bar.changed.yellow {
-    background-color: #ffeb3b; /* Yellow */
-}
-
-/* Hover Effect */
-.array-bar:hover .bar-value {
-    transform: translateX(-50%) translateY(-20%) scale(1.5); /* Scale up on hover */
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 6px;
+    padding: 4px 8px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
 }
 
 /* Button Styles */
 button {
-    margin: 10px; /* Increased margin for buttons */
-    padding: 12px 28px; /* Increased padding for a more substantial feel */
-    background-color: #333; /* Dark background for buttons */
+    margin: 10px;
+    padding: 12px 28px;
+    background-color: #333;
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    color: #f5f5f5; /* Soft white text color */
-    font-size: 1.1em; /* Slightly larger font size */
-    font-weight: bold; /* Bold text for emphasis */
+    border-radius: 8px;
+    color: #f5f5f5;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for scaling effect */
-    position: relative; /* For pseudo-element */
-    overflow: hidden; /* Prevent overflow on pseudo-element */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
-    background-color: #555; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    background-color: #555;
+    transform: scale(1.05);
 }
 
 /* Button Ripple Effect */
@@ -121,80 +161,183 @@ button::after {
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.5s ease;
-    z-index: 0; /* Ensure it's behind text */
+    z-index: 0;
 }
 
 button:hover::after {
-    transform: translate(-50%, -50%) scale(1); /* Animate ripple effect */
+    transform: translate(-50%, -50%) scale(1);
 }
 
-/* Controls Box Styles */
 .controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px; /* Increased spacing between controls */
-    padding: 20px; /* Padding around the controls */
-    background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent dark background */
-    border-radius: 12px; /* Rounded corners for the box */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-    width: 100%; /* Ensure it fits the container */
-    max-width: 800px; /* Optional: Limit the width on larger screens */
+    gap: 20px; /* Spacing between buttons and dropdown */
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.8); /* Dark, semi-transparent background */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); /* Neon glow shadow */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
 }
+
+.futuristic-controls button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #333, #222); /* Gradient for depth */
+    border: none;
+    border-radius: 10px;
+    color: #00ffcc; /* Neon greenish color */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1; /* To ensure ripple effect stays behind text */
+    overflow: hidden;
+    flex: 1 1 auto; /* Allow buttons to resize and fit better on small screens */
+    margin: 5px; /* Add some margin to buttons */
+}
+
+.futuristic-controls button:hover {
+    background: #00ffcc;
+    color: #121212; /* Change text color on hover */
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7); /* Stronger glow on hover */
+    transform: scale(1.05); /* Slight zoom */
+}
+
+/* Ripple effect */
+.futuristic-controls button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease-out;
+    z-index: 0;
+}
+
+.futuristic-controls button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dropdown select styling */
+.futuristic-controls select {
+    padding: 12px;
+    background-color: #222;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, border 0.3s ease;
+    flex: 1 1 auto; /* Allow select to resize */
+    margin: 5px; /* Add margin for select input */
+}
+
+.futuristic-controls select:hover {
+    background-color: #00ffcc;
+    color: #121212;
+    border-color: #00ffaa; /* Slight color shift on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column; /* Stack buttons and select inputs vertically */
+        padding: 15px; /* Reduce padding for smaller screens */
+        gap: 15px; /* Less spacing between controls */
+    }
+
+    .futuristic-controls button {
+        padding: 10px 18px; /* Slightly smaller padding for buttons */
+        font-size: 1em; /* Reduce font size for buttons */
+        flex: 1 1 100%; /* Make buttons full width on mobile */
+    }
+
+    .futuristic-controls select {
+        padding: 10px; /* Slightly smaller padding for select */
+        font-size: 1em; /* Reduce font size for select */
+        flex: 1 1 100%; /* Make select full width on mobile */
+    }
+}
+
+/* Ensuring ripple effect doesn't overflow */
+.futuristic-controls button::after,
+.futuristic-controls select::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
 
 /* Algorithm Select Styles */
 .algorithm-select {
-    padding: 12px; /* Increased padding for a more substantial feel */
+    padding: 12px;
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    background-color: #333; /* Dark background for select */
-    color: #f5f5f5; /* Text color */
-    font-weight: bold; /* Bold text */
-    font-size: 1em; /* Consistent font size */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s ease; /* Transition for background */
+    border-radius: 8px;
+    background-color: #333;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .algorithm-select:hover {
-    background-color: #555; /* Darker shade on hover */
+    background-color: #555;
 }
 
 /* No Data Message Styles */
 .no-data-message {
-    color: #ffcc00; /* Highlight color for message */
-    font-size: 1.6em; /* Larger font size */
-    margin-top: 20px; /* Spacing above the message */
-    text-align: center; /* Center the message */
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Enhanced glow effect */
+    color: #ffcc00;
+    font-size: 1.6em;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .array-container {
-        padding: 10px; /* Reduce padding on smaller screens */
-        flex-wrap: wrap; /* Allow wrapping of bars */
-        overflow-x: hidden; /* Disable horizontal scrolling */
+        padding: 10px;
+        flex-wrap: wrap;
+        overflow-x: hidden;
     }
 
     .array-bar {
-        width: 20px; /* Adjust width for smaller screens */
-        margin: 0 5px; /* Reduce margin for smaller screens */
+        width: 20px;
+        margin: 0 5px;
     }
 
     .bar-number {
-        font-size: 12px; /* Slightly larger font size for numbers */
+        font-size: 12px;
     }
 
     button {
-        font-size: 0.9em; /* Smaller font size for buttons */
-        padding: 10px 20px; /* Adjust button padding */
+        font-size: 0.9em;
+        padding: 10px 20px;
     }
 
     .algorithm-select {
-        font-size: 0.9em; /* Smaller font size for select */
+        font-size: 0.9em;
     }
 
     .no-data-message {
-        font-size: 1.3em; /* Smaller font size for no data message */
+        font-size: 1.3em;
     }
 }
