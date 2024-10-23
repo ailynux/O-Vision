@@ -1,69 +1,129 @@
-/* General Styling for the App Container */
+/* General Styling */
+
+
+
 .App {
-  position: relative; /* Allow particles to cover */
+  position: relative;
   text-align: center;
-  background-color: #121212;
+  background-color: #0e0e0e;
   color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Press Start 2P'; /* Cyberpunk font style */
   overflow-x: hidden;
 }
 
-/* Particles Background Styling */
-.Particles {
-  position: absolute; /* Cover the entire App */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Place behind other content */
-}
 /* Header Styling */
 .App-header {
-  perspective: 1000px; /* Allow 3D effect */
-  width: 100%; /* Ensure header takes full width */
-  padding: 20px; /* Padding for spacing */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
-  transition: background-color 0.3s; /* Smooth transition for background color */
+  width: 100%;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #001f3f, #111);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
 }
 
-.App-header h1,
+.App-header h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00bcd4; /* Modern blue color */
+  font-family: 'Roboto', sans-serif; /* Clean and modern tech font */
+  text-shadow: 0 0 8px rgba(0, 188, 212, 0.7); /* Subtle glow */
+}
+
 .App-header h2 {
-  display: inline-block;
-  font-size: 3rem;
-  transition: transform 0.5s ease;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-header h1:hover,
-.App-header h2:hover {
-  transform: rotateY(20deg) scale(1.1); /* 3D rotation and scaling effect on hover */
+.header-icon {
+  font-size: 2.5rem;
+  color: #00bcd4;
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Main Content Styling */
+.header-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Subtle glowing effect */
+@keyframes subtleGlow {
+  0% {
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.7), 0 0 20px rgba(0, 188, 212, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 12px rgba(0, 188, 212, 0.9), 0 0 30px rgba(0, 188, 212, 0.5);
+  }
+}
+
+.App-header h1 {
+  animation: subtleGlow 2s ease-in-out infinite alternate;
+}
+
+
+/* Main Content */
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
   width: 100%;
-  flex: 1; /* Allow the main section to grow */
+  flex: 1;
+}
+
+/* About and Algorithm Section Styling */
+section {
+  width: 100%;
+  padding: 60px 20px;
+  margin: 20px 0;
+  background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 4px solid #1db954;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #e0e0e0;
 }
 
 /* Footer Styling */
 .App-footer {
   position: relative;
   width: 100%;
-  padding: 40px; /* Increased padding for a more spacious feel */
-  color: #e0e0e0; /* Lighter text color for better contrast */
-  background: rgba(30, 30, 30, 0.9); /* Dark background for depth */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Stronger shadow for depth */
-  border-top: 2px solid #1db954; /* Futuristic top border */
-  margin-top: 20px; /* Ensure there’s space above the footer */
-  overflow: hidden; /* Hide overflow from the pseudo-element */
+  padding: 50px;
+  color: #e0e0e0;
+  background: rgba(30, 30, 30, 0.9);
+  border-top: 2px solid #1db954;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .App-footer::before {
@@ -73,59 +133,51 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4; /* Dim the image to enhance text visibility */
-  z-index: -1; /* Send the image behind the text */
+  opacity: 0.4;
+  z-index: -1;
 }
 
 .footer-content {
-  position: relative; /* Position relative to allow text on top */
-  z-index: 1; /* Bring the content in front of the background */
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center-align the content */
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Stronger text shadow for better readability */
-  animation: fadeIn 1s ease-in; /* Animation for the entire footer content */
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 1s ease-in;
 }
 
-/* Footer Header */
 .App-footer h2 {
-  margin: 0; /* Remove default margin */
-  font-size: 2em; /* Larger font size for the header */
-  font-weight: 700; /* Bolder for emphasis */
-  color: #1db954; /* Accent color for the title */
-  text-transform: uppercase; /* Make it stand out */
-  letter-spacing: 1px; /* Spacing for aesthetics */
-  animation: fadeIn 1s ease-in 0.5s; /* Animation with delay */
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1db954;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-/* Footer Paragraphs */
 .App-footer p {
-  margin: 5px 0; /* Add some spacing between paragraphs */
-  font-size: 1.4em; /* Slightly larger font size for emphasis */
-  font-weight: 500; /* Medium weight for better readability */
+  font-size: 1.4rem;
+  margin: 5px 0;
 }
 
-/* Footer Links */
 .App-link {
-  color: #00e5ff; /* Futuristic link color */
+  color: #00e5ff;
   text-decoration: none;
+  font-size: 1.2rem;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling on hover */
-  margin-top: 5px; /* Space between paragraph and link */
-  font-size: 1.2em; /* Slightly larger font size for links */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .App-link:hover {
-  color: #18a348; /* Slightly change color on hover */
-  text-decoration: underline; /* Underline on hover for emphasis */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  color: #18a348;
+  text-decoration: underline;
+  transform: scale(1.05);
 }
 
 /* Animation Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Move up slightly */
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -133,11 +185,11 @@ main {
   }
 }
 
-/* Buttons */
+/* Button Styling */
 button {
   margin: 10px;
-  padding: 10px 20px;
-  background-color: #1db954; /* Green background for buttons */
+  padding: 12px 24px;
+  background-color: #1db954;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -147,42 +199,114 @@ button {
 }
 
 button:hover {
-  background-color: #18a348; /* Darker shade on hover */
+  background-color: #18a348;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-  transform: scale(0.98); /* Small button press effect */
+  transform: scale(0.98);
 }
 
-/* Spinner Animation (if needed) */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #001f3f, #111);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Mobile Responsive Adjustments */
+.navbar-logo h1 {
+  color: #00bcd4;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo h1:hover {
+  color: #1db954;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link svg {
+  margin-right: 8px;
+}
+
+.nav-link:hover {
+  color: #00bcd4;
+  transform: scale(1.05);
+}
+
+/* Mobile Menu */
 @media (max-width: 768px) {
-  .App-header h1 {
-    font-size: 2rem; /* Adjust header font size for smaller screens */
+  .menu-icon {
+    display: block;
   }
 
-  button {
-    padding: 8px 16px; /* Adjust button padding for smaller screens */
-    font-size: 0.9rem;
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  .nav-item {
+    margin-bottom: 20px;
+  }
+
+  .navbar-logo h1 {
+    font-size: 1.8rem;
   }
 
   .App-footer p {
-    font-size: 1.2em; /* Adjust footer font size for smaller screens */
+    font-size: 1.2rem;
   }
 
-  /* Ensure everything fits on smaller screens */
-  .App-header,
-  .App-footer {
-    padding: 15px; /* Adjust padding to fit smaller screens */
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }

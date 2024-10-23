@@ -1,21 +1,50 @@
-// src/App.js
-
 import React from 'react';
-import Visualizer from './components/Visualizer'; // Use the original Visualizer component
-import ParticlesBackground from './components/ParticlesBackground'; // Correct path to ParticlesBackground
+import { FaRobot, FaRocket, FaCode } from 'react-icons/fa';
+import Visualizer from './components/Visualizer'; // Original Visualizer component
+import NavBar from './components/NavBar'; // Navbar component
+import MatrixBackground from './components/MatrixBackground'; // Import the MatrixBackground component
 import './App.css'; // Import the CSS styles
 
 const App = () => {
   return (
     <div className="App">
-      <ParticlesBackground /> {/* Include the particles background here */}
+      <MatrixBackground /> {/* Matrix Background component */}
+      <NavBar /> {/* Navbar component */}
+
+      {/* Crazy Interactive Header */}
       <header className="App-header">
-        <h1>O-Vision</h1>
-        <h2>Sorting Algorithm Visualizer</h2>
+        <h1>
+          <span className="neon-text">O-Vision</span> 
+          <FaRocket className="header-icon" />
+        </h1>
+        <h2>
+          <FaRobot className="header-icon" /> Sorting Algorithm Visualizer{' '}
+          <FaCode className="header-icon" />
+        </h2>
       </header>
+
+      {/* Main Content */}
       <main>
         <Visualizer /> {/* Main visualizer for sorting algorithms */}
+
+        {/* About Section */}
+        <section id="about" className="about-section">
+          <h2>About O-Vision</h2>
+          <p>
+            O-Vision is a platform that helps you visualize complex sorting algorithms. Explore how different algorithms work step by step in a fun, futuristic environment!
+          </p>
+        </section>
+
+        {/* Algorithms Section */}
+        <section id="algorithms" className="algorithms-section">
+          <h2>Sorting Algorithms</h2>
+          <p>
+            Experience visualizations of popular sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and more — all with a cyberpunk twist!
+          </p>
+        </section>
       </main>
+
+      {/* Footer */}
       <footer className="App-footer" style={{ backgroundImage: "url('/crypto.webp')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: '0.85' }}>
         <div className="footer-content" style={{ backgroundColor: 'rgba(200, 200, 200, 0.7)', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.5)' }}>
           <h2>Ailyn Diaz - Software Developer</h2>
