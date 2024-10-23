@@ -1,7 +1,5 @@
-// src/components/NavBar.js
-
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaGithub, FaInfoCircle, FaSort, FaLinkedin, FaCode, FaTerminal } from 'react-icons/fa'; // Import icons
+import { FaBars, FaTimes, FaGithub, FaInfoCircle, FaSort, FaLinkedin, FaCode, FaTerminal } from 'react-icons/fa';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
