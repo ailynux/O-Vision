@@ -113,7 +113,7 @@ const App = () => {
   <div className="footer-bottom">
     <p>&copy; {new Date().getFullYear()} Ailyn Diaz. All Rights Reserved.</p>
     <a href="https://ailynux.github.io" target="_blank" rel="noopener noreferrer" className="portfolio-link">
-        Check out my Personal Portfilio!
+        Check out my Portfolio!
       </a>
   </div>
 </footer>
