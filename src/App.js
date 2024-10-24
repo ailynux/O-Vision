@@ -26,13 +26,42 @@ const App = () => {
       {/* Main Content */}
       <main>
 
-      {/* About Section */}
-      <section id="about" className="about-section">
-          <h2>About O-Vision</h2>
-          <p>
-            O-Vision is a platform that helps you visualize complex sorting algorithms. Explore how different algorithms work step by step in a fun, futuristic environment!
-          </p>
-        </section>
+     {/* About Section */}
+<section id="about" className="about-section">
+    <div className="about-card">
+        <div className="about-card-header">
+            <h2>About O-Vision</h2>
+            <p>
+                O-Vision is a platform that helps you visualize complex sorting algorithms.
+                Explore how different algorithms work step by step in a futuristic and intuitive environment!
+            </p>
+        </div>
+        <div className="about-card-content">
+            <div className="feature">
+                <i className="fas fa-chart-line"></i> {/* New icon */}
+                <h3>Big O Notation</h3>
+                <p>Understand the time complexity and performance of algorithms with visual breakdowns.</p>
+            </div>
+            <div className="feature">
+                <i className="fas fa-laptop-code"></i>
+                <h3>Code Examples</h3>
+                <p>Get access to interactive code snippets for each algorithm and experiment with them in real-time.</p>
+            </div>
+            <div className="feature">
+                <i className="fas fa-cogs"></i>
+                <h3>Algorithm Visualizer</h3>
+                <p>Watch algorithms in action, step by step, and see how they sort and manage data efficiently.</p>
+            </div>
+            <div className="feature">
+                <i className="fas fa-user-astronaut"></i>
+                <h3>Meet the Creator</h3>
+                <p>Hi! I'm [Your Name], the creator of O-Vision. I love building cool apps and simplifying complex concepts!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 
         <Visualizer /> {/* Main visualizer for sorting algorithms */}
@@ -45,7 +74,7 @@ const App = () => {
             Experience visualizations of popular sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and more — all with a cyberpunk twist!
           </p>
         </section>
-        
+
       </main>
 
       {/* Footer */}
