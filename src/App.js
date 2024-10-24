@@ -25,16 +25,19 @@ const App = () => {
 
       {/* Main Content */}
       <main>
-        <Visualizer /> {/* Main visualizer for sorting algorithms */}
 
-        {/* About Section */}
-        <section id="about" className="about-section">
+      {/* About Section */}
+      <section id="about" className="about-section">
           <h2>About O-Vision</h2>
           <p>
             O-Vision is a platform that helps you visualize complex sorting algorithms. Explore how different algorithms work step by step in a fun, futuristic environment!
           </p>
         </section>
 
+
+        <Visualizer /> {/* Main visualizer for sorting algorithms */}
+
+      
         {/* Algorithms Section */}
         <section id="algorithms" className="algorithms-section">
           <h2>Sorting Algorithms</h2>
@@ -42,6 +45,7 @@ const App = () => {
             Experience visualizations of popular sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and more — all with a cyberpunk twist!
           </p>
         </section>
+        
       </main>
 
       {/* Footer */}
