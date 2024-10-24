@@ -153,17 +153,33 @@ section p {
   color: #e0e0e0;
 }
 
-/* Footer Styling */
-.App-footer {
-  position: relative;
-  width: 100%;
-  padding: 50px;
-  color: #e0e0e0;
-  background: rgba(30, 30, 30, 0.9);
-  border-top: 2px solid #1db954;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+/* Footer Container */
+/* Portfolio Link Styling */
+.portfolio-link {
+  color: #00f5d4; /* Tiffany blue color */
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.portfolio-link:hover {
+  color: #1db954; /* Green on hover */
+  transform: scale(1.05);
+}
+
+.App-footer {
+  background: rgba(255, 255, 255, 0.1); /* Transparent glass-like background */
+  backdrop-filter: blur(12px); /* Enhanced Glassmorphism */
+  padding: 60px 20px;
+  color: #e0e0e0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+  font-family: 'Poppins', sans-serif; /* Modern and clean font */
+  overflow: hidden;
+}
+
+/* Background Animation for Subtle Cool Effect */
 .App-footer::before {
   content: '';
   position: absolute;
@@ -171,31 +187,152 @@ section p {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
+  background: radial-gradient(circle, rgba(0, 245, 212, 0.1), rgba(0, 245, 212, 0) 70%);
   z-index: -1;
+  opacity: 0.5;
+  animation: fade-in 6s infinite;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+/* Footer Content Section */
 .footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-  animation: fadeIn 1s ease-in;
+  flex: 1;
+  text-align: left;
 }
 
-.App-footer h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #1db954;
-  letter-spacing: 1px;
+.footer-content h2 {
+  font-size: 3rem;
+  color: #1db954; /* Primary green color */
   text-transform: uppercase;
+  letter-spacing: 4px;
   margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  background: linear-gradient(135deg, #00f5d4, #1db954);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 1.5s ease-in-out infinite alternate;
 }
 
-.App-footer p {
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 245, 212, 0.6), 0 0 20px rgba(0, 245, 212, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(0, 245, 212, 0.9), 0 0 30px rgba(0, 245, 212, 0.7);
+  }
+}
+
+.footer-content p {
   font-size: 1.4rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-content a {
+  color: #00f5d4;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #1db954;
+  transform: scale(1.05);
+}
+
+/* Footer Media Links Section */
+.footer-media-links {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-media-links h3 {
+  font-size: 2.2rem;
+  color: #00f5d4;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.footer-media-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-media-links ul li {
+  margin-bottom: 12px;
+}
+
+.footer-media-links ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-media-links ul li a:hover {
+  color: #1db954;
+  transform: scale(1.05);
+}
+
+.footer-media-links i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #00f5d4;
+  transition: transform 0.3s ease;
+}
+
+.footer-media-links i:hover {
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* Bottom Footer Section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 1.1rem;
+  color: #c7c7c7;
   margin: 5px 0;
 }
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-media-links {
+    margin-top: 20px;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+}
+
+
+
 
 .App-link {
   color: #00e5ff;

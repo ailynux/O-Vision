@@ -3,6 +3,7 @@ import { FaRobot, FaRocket, FaCode } from 'react-icons/fa';
 import Visualizer from './components/Visualizer'; // Original Visualizer component
 import NavBar from './components/NavBar'; // Navbar component
 import MatrixBackground from './components/MatrixBackground'; // Import the MatrixBackground component
+import AlgorithmsSection from './components/AlgorithmsSection';
 import './App.css'; // Import the CSS styles
 
 const App = () => {
@@ -68,26 +69,56 @@ const App = () => {
 
       
         {/* Algorithms Section */}
-        <section id="algorithms" className="algorithms-section">
-          <h2>Sorting Algorithms</h2>
-          <p>
-            Experience visualizations of popular sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and more — all with a cyberpunk twist!
-          </p>
-        </section>
-
+        <AlgorithmsSection />
       </main>
 
-      {/* Footer */}
-      <footer className="App-footer" style={{ backgroundImage: "url('/crypto.webp')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: '0.85' }}>
-        <div className="footer-content" style={{ backgroundColor: 'rgba(200, 200, 200, 0.7)', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.5)' }}>
-          <h2>Ailyn Diaz - Software Developer</h2>
-          <p>💻 Dive into more of my projects!</p>
-          <a className="App-link" href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github" style={{ marginRight: '5px' }}></i>
-            Explore My GitHub
+  {/* Footer */}
+<footer className="App-footer">
+  <div className="footer-container">
+    <div className="footer-content">
+      <h2>Ailyn Diaz - Software Developer</h2>
+      <p>💻 Dive into more of my projects and connect with me!</p>
+      <a className="App-link" href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer">
+        <i className="fab fa-github"></i> Explore My GitHub
+      </a>
+    </div>
+
+    <div className="footer-media-links">
+      <h3>Connect with Me</h3>
+      <ul>
+        <li>
+          <a href="https://linkedin.com/in/ailyndiaz01" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
           </a>
-        </div>
-      </footer>
+        </li>
+        <li>
+          <a href="https://leetcode.com/ailynux" target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-code"></i> LeetCode
+          </a>
+        </li>
+        <li>
+          <a href="https://exercism.org/profiles/ailynux" target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-dumbbell"></i> Exercism
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github"></i> GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} Ailyn Diaz. All Rights Reserved.</p>
+    <a href="https://ailynux.github.io" target="_blank" rel="noopener noreferrer" className="portfolio-link">
+        Check out my Personal Portfilio!
+      </a>
+  </div>
+</footer>
+
+
     </div>
   );
 }

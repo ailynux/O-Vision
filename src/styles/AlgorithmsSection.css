@@ -1,0 +1,117 @@
+/* Algorithms Section Styling */
+.algorithms-section {
+    width: 100%;
+    padding: 80px 20px;
+    background: rgba(20, 20, 20, 0.9); /* Dark background for a cyberpunk feel */
+    color: #e0e0e0;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif; /* Techy font */
+  }
+  
+  /* Glowing Gradient for Section Title */
+  .algorithms-header h2 {
+    font-size: 3.5rem;
+    color: #1db954; /* Main green highlight */
+    background: linear-gradient(135deg, #1db954, #00f5d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .algorithms-header p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #c7c7c7;
+    line-height: 1.6;
+  }
+  
+  /* Cards Grid Layout */
+  .algorithms-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+    gap: 30px;
+    padding-top: 40px;
+  }
+  
+  /* Individual Algorithm Card */
+  .algorithm-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .algorithm-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  }
+  
+  .algorithm-card i {
+    font-size: 3rem;
+    color: #00f5d4; /* Tiffany blue for icons */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .algorithm-card:hover i {
+    color: #1db954; /* Green color on hover */
+    transform: scale(1.1);
+  }
+  
+  .algorithm-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #1db954; /* Green heading color */
+  }
+  
+  .algorithm-card p {
+    font-size: 1.1rem;
+    color: #c7c7c7;
+    line-height: 1.6;
+  }
+  
+  /* Fancy Background Animation */
+  .algorithm-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    transform: skewX(-20deg);
+    transition: transform 0.5s ease;
+  }
+  
+  .algorithm-card:hover::before {
+    transform: translateX(100%) skewX(-20deg);
+  }
+  
+  /* Responsive Layout for Medium Screens */
+  @media (max-width: 1024px) {
+    .algorithms-cards {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
+    }
+  }
+  
+  /* Responsive Layout for Small Screens */
+  @media (max-width: 768px) {
+    .algorithms-cards {
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+  
+    .algorithm-card {
+      padding: 20px;
+    }
+  }
+  
