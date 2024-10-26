@@ -1,6 +1,9 @@
 # 🔮 Welcome to **O-Vision** – Big O Notation Algorithm Visualizer
 
 **O-Vision** is your go-to tool for understanding and visualizing algorithm complexities like never before! If you've ever been confused by terms like O(1), O(n), O(log n), or O(n^2), this app breaks it down visually with engaging animations and clear examples.
+***
+
+![image](https://github.com/user-attachments/assets/2cfec334-51ed-40c9-b390-5518e50793e0)
 
 ## 🚀 Features
 
