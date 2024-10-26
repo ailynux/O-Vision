@@ -53,15 +53,28 @@ const App = () => {
                 <h3>Algorithm Visualizer</h3>
                 <p>Watch algorithms in action, step by step, and see how they sort and manage data efficiently.</p>
             </div>
+            
+            {/* New Cards */}
             <div className="feature">
-                <i className="fas fa-user-astronaut"></i>
-                <h3>Meet the Creator</h3>
-                <p>Hi! I'm [Your Name], the creator of O-Vision. I love building cool apps and simplifying complex concepts!</p>
+                <i className="fas fa-lightbulb"></i> {/* Icon for Innovation */}
+                <h3>Innovative Solutions</h3>
+                <p>Discover creative and modern solutions to algorithm challenges with cutting-edge visual tools.</p>
+            </div>
+            <div className="feature">
+              <i className="fas fa-user-astronaut"></i>
+              <h3>Meet the Creator</h3>
+              <p>
+                Hi! I'm Ailyn Diaz, the creator of O-Vision. I'm passionate about building innovative apps and bringing ideas to life. With a love for full-stack development and a knack for problem-solving, I strive to simplify complex concepts and make technology accessible to everyone.
+              </p>
+            </div>
+            <div className="feature">
+                <i className="fas fa-users"></i> {/* Icon for Community */}
+                <h3>Join the Community</h3>
+                <p>Connect with a community of learners and developers who are exploring the world of algorithms.</p>
             </div>
         </div>
     </div>
 </section>
-
 
 
 

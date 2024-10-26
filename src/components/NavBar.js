@@ -19,32 +19,32 @@ const NavBar = () => {
       <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
         <li className="nav-item">
           <a href="#about" className="nav-link">
-            <FaInfoCircle /> About
+            <FaInfoCircle /> <span>About</span>
           </a>
         </li>
         <li className="nav-item">
           <a href="#algorithms" className="nav-link">
-            <FaSort /> Algorithms
+            <FaSort /> <span>Algorithms</span>
           </a>
         </li>
         <li className="nav-item">
           <a href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer" className="nav-link">
-            <FaGithub /> GitHub
+            <FaGithub /> <span>GitHub</span>
           </a>
         </li>
         <li className="nav-item">
           <a href="https://www.linkedin.com/in/ailyndiaz01" target="_blank" rel="noopener noreferrer" className="nav-link">
-            <FaLinkedin /> LinkedIn
+            <FaLinkedin /> <span>LinkedIn</span>
           </a>
         </li>
         <li className="nav-item">
           <a href="https://leetcode.com/ailynux" target="_blank" rel="noopener noreferrer" className="nav-link">
-            <FaCode /> LeetCode
+            <FaCode /> <span>LeetCode</span>
           </a>
         </li>
         <li className="nav-item">
           <a href="https://exercism.org/profiles/ailynux" target="_blank" rel="noopener noreferrer" className="nav-link">
-            <FaTerminal /> Exercism
+            <FaTerminal /> <span>Exercism</span>
           </a>
         </li>
       </ul>
